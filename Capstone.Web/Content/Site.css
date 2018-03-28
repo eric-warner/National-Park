@@ -1,5 +1,4 @@
 ﻿body {
-    padding-top: 50px;
     padding-bottom: 20px;
 }
 
@@ -15,4 +14,27 @@ select,
 textarea {
     max-width: 280px;
 }
+/* NavBar Logo =============================================*/
+.navbar-brand {
+    padding: 0px;
+}
 
+    .nav-main img {
+        padding: 15px;
+        width: 30%;
+        float: left;
+    }
+
+.nav-main .navbar-brand {
+    height: 80px;
+}
+
+.nav-main .nav > li > a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.nav-main .navbar-toggle {
+    padding: 10px;
+    margin: 25px 15px 25px 0;
+}
