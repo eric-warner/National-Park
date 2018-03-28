@@ -1,0 +1,8 @@
+﻿@using Capstone.Web.Models
+@model List<Park>
+
+<h2>Index</h2>
+@foreach(Park p in Model)
+{
+    <div>@p.Name</div>
+}
