@@ -12,5 +12,7 @@ namespace Capstone.Web.DAL
         IList<Park> GetAllParks();
         Park GetPark(string code);
         IList<Weather> GetParkWeather(string code);
+        bool AddSurvey(Survey survey);
+        IList<SurveyResult> GetSurveyResults();
     }
 }

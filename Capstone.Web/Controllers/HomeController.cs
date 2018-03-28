@@ -25,8 +25,6 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Detail(string parkCode)
         {
-            // Test code
-            //parkCode = "CVNP";
             Park park = _dal.GetPark(parkCode);
             IList<Weather> weather = _dal.GetParkWeather(parkCode);
 

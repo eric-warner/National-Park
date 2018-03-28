@@ -1,0 +1,16 @@
+﻿@using Capstone.Web.Models
+@model List<SurveyResult>
+
+<div class="container">
+    <h2>Survey Results</h2>
+
+    @foreach (SurveyResult result in Model)
+    {
+        <div class="surveyResult">
+            <img src="~/Content/parks/@(result.Park.Code.ToLower() + ".jpg")" alt="@result.Park.Name" />
+            <div><a href="/Home/Detail/@result.Park.Code">@result.Park.Name</a></div>
+            <div>@result.Count</div>
+        </div>
+    }
+
+</div>

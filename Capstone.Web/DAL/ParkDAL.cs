@@ -82,6 +82,62 @@ namespace Capstone.Web.DAL
             return weather;
         }
 
+        public bool AddSurvey(Survey survey)
+        {
+            bool isAdded = false;
+            string SQL_AddReview = @"INSERT INTO survey_result (parkCode, emailAddress, state, activityLevel) 
+                                     VALUES (@code, @email, @state, @activity);";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(SQL_AddReview, conn);
+                cmd.Parameters.AddWithValue("@code", survey.ParkCode);
+                cmd.Parameters.AddWithValue("@email", survey.Email);
+                cmd.Parameters.AddWithValue("@state", survey.State);
+                cmd.Parameters.AddWithValue("@activity", survey.ActivityLevel);
+
+                int result = (int)cmd.ExecuteNonQuery();
+
+                if(result > 0)
+                {
+                    isAdded = true;
+                }
+            }
+
+            return isAdded;
+        }
+
+        public IList<SurveyResult> GetSurveyResults()
+        {
+            List<SurveyResult> results = new List<SurveyResult>();
+            string SQL_GetSurveyResults = @"SELECT p.*, s.surveyCount
+                                            FROM (
+	                                              SELECT parkCode, COUNT(*) AS surveyCount 
+	                                              FROM survey_result 
+	                                              GROUP BY parkCode
+	                                              ) s
+                                            JOIN park p ON s.parkCode = p.parkCode
+                                            ORDER BY s.surveyCount DESC, p.parkName ASC;";
+
+            using (SqlConnection conn = new SqlConnection(_connectionString))
+            {
+                conn.Open();
+
+                SqlCommand cmd = new SqlCommand(SQL_GetSurveyResults, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    results.Add(GetParkAndSurveyResult(reader));
+                }
+            }
+
+            return results;
+        }
+
+        #region From Reader Functions
         private Park GetParkFromReader(SqlDataReader reader)
         {
             return new Park()
@@ -92,6 +148,7 @@ namespace Capstone.Web.DAL
                 Acreage = Convert.ToInt32(reader["acreage"]),
                 ElevationInFeet = Convert.ToInt32(reader["elevationInFeet"]),
                 MilesOfTrail = Convert.ToInt32(reader["milesOfTrail"]),
+                NumberOfCampsites = Convert.ToInt32(reader["numberOfCampsites"]),
                 Climate = Convert.ToString(reader["climate"]),
                 YearFounded = Convert.ToInt32(reader["yearFounded"]),
                 AnnualVisitorCount = Convert.ToInt32(reader["annualVisitorCount"]),
@@ -100,6 +157,15 @@ namespace Capstone.Web.DAL
                 Description = Convert.ToString(reader["parkDescription"]),
                 EntryFee = Convert.ToInt32(reader["entryFee"]),
                 NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"])
+            };
+        }
+
+        private SurveyResult GetParkAndSurveyResult(SqlDataReader reader)
+        {
+            return new SurveyResult()
+            {
+                Park = GetParkFromReader(reader),
+                Count = Convert.ToInt32(reader["surveyCount"])
             };
         }
 
@@ -114,5 +180,6 @@ namespace Capstone.Web.DAL
                 Forecast = Convert.ToString(reader["forecast"])
             };
         }
+        #endregion
     }
 }

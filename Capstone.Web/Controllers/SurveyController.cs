@@ -21,5 +21,25 @@ namespace Capstone.Web.Controllers
             IList<Park> parks = _dal.GetAllParks();
             return View("Index", parks);
         }
+
+        [HttpPost]
+        public ActionResult Submit(Survey survey)
+        {
+            bool isSubmitted = _dal.AddSurvey(survey);
+
+            if (isSubmitted)
+            {
+                IList<SurveyResult> results = _dal.GetSurveyResults();
+                return RedirectToAction("Results", results);
+            }
+
+            return Index();
+        }
+
+        public ActionResult Results()
+        {
+            IList<SurveyResult> results = _dal.GetSurveyResults();
+            return View("Results", results);
+        }
     }
 }
