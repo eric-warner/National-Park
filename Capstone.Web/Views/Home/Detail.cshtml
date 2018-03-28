@@ -1,5 +1,100 @@
 ﻿@using Capstone.Web.Models
 @model ParkAndWeather
 
-<h2>Park Detail</h2>
-@Model.Park.Name
+<div class="body-content">
+    <div class="text-center"><h2 class="green-text-header">@Model.Park.Name</h2></div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-lg-6 detail-col">
+            <img src="~/Content/@(Model.Park.Code.ToLower() + ".jpg")" />
+            <h4>@Model.Park.State</h4>
+            <br />
+            <p>@Model.Park.Description</p>
+            <br />
+            <h4>Founded in @Model.Park.YearFounded</h4>
+        </div>
+        <div class="col-lg-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-callout bs-callout-success">
+                        <h4>Park Acreage</h4>
+                        @Model.Park.Acreage Acres
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-callout bs-callout-success">
+                        <h4>Park Elevation</h4>
+                        @Model.Park.ElevationInFeet Feet
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-callout bs-callout-success">
+                        <h4>Miles of Trail</h4>
+                        @Model.Park.MilesOfTrail Miles
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-callout bs-callout-success">
+                        <h4>Number of Campsites</h4>
+                        @Model.Park.NumberOfCampsites Campsites
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-callout bs-callout-success">
+                        <h4>Park Climate</h4>
+                        @Model.Park.Climate
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-callout bs-callout-success">
+                        <h4>Number of Annual Visitors</h4>
+                        @Model.Park.AnnualVisitorCount Visitors
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-callout bs-callout-success">
+                        <h4>Number of Animal Species</h4>
+                        @Model.Park.NumberOfAnimalSpecies Species
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="jumbotron">
+                <div class="quote">
+                    <div class="text-center">
+                        <hr />
+                        <h3>"@Model.Park.InspirationalQuote"</h3>
+                        <h4>@Model.Park.InspirationalQuoteSource</h4>
+                        <hr />
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card daily-info-card">
+            <div class="weather">
+                <!-- react-text: 86 -->12°<!-- /react-text --><i class="wi wi-day-cloudy"></i>
+                </div>
+            <div class="date">Saturday 16 january</div>
+            </div>
+        </div>
+    </div>
+</div>

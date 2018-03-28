@@ -1,11 +1,13 @@
-﻿body {
+﻿/*Weather Icons*/
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css);
+
+body {
     padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 100px 20px;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -38,3 +40,192 @@ textarea {
     padding: 10px;
     margin: 25px 15px 25px 0;
 }
+
+.park-img {
+    width: 100%;
+}
+
+.green-text-header {
+    color: #78c98d;
+}
+
+/*Button Styles ==============================================*/
+
+.btn-bg {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-bg.bg-2 {
+    background: #78c98d;
+}
+
+    .btn-bg.bg-2 .btn-2 button {
+        color: #d0f9c7;
+        background: #78c98d;
+        border: none;
+        -webkit-transition: all 0.7s ease;
+        transition: all 0.7s ease;
+        width: 100%;
+    }
+
+.btn-bg.bg-2 .btn-2 button:hover {
+            background: transparent;
+            color: #d0f9c7;
+        }
+
+.btn-bg.bg-2 .btn-2 button:hover:before,
+.btn-bg.bg-2 .btn-2 button:hover:after {
+                -webkit-transition: all 0.7s ease;
+                transition: all 0.7s ease;
+                width: 100%;
+            }
+
+.btn-bg.bg-2 .btn-2 button:before,
+.btn-bg.bg-2 .btn-2 button:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0px;
+            width: 0px;
+            height: 3px;
+            background: #d0f9c7;
+            transition: all 0.4s ease;
+        }
+
+.btn-bg.bg-2 .btn-2 button:after {
+            top: inherit;
+            left: inherit;
+            bottom: 0;
+            right: 0;
+        }
+.detail-col {
+    margin-right: 6%;
+}
+
+/*Detail Page style =======================================================================*/
+
+/* Detail Info Callouts -----------------------------------------------------*/
+.bs-callout {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+    .bs-callout h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    .bs-callout p:last-child {
+        margin-bottom: 0;
+    }
+
+    .bs-callout code {
+        border-radius: 3px;
+    }
+
+    .bs-callout + .bs-callout {
+        margin-top: -5px;
+    }
+
+.bs-callout-default {
+    border-left-color: #777;
+}
+
+    .bs-callout-default h4 {
+        color: #777;
+    }
+
+.bs-callout-primary {
+    border-left-color: #428bca;
+}
+
+    .bs-callout-primary h4 {
+        color: #428bca;
+    }
+
+.bs-callout-success {
+    border-left-color: #78c98d;
+}
+
+    .bs-callout-success h4 {
+        color: #78c98d;
+    }
+
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+
+    .bs-callout-danger h4 {
+        color: #d9534f;
+    }
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+    .bs-callout-warning h4 {
+        color: #f0ad4e;
+    }
+
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+
+    .bs-callout-info h4 {
+        color: #5bc0de;
+    }
+
+/*Quote -------------------------------------------------------*/
+
+.quote {
+    width: 70%;
+    margin: 0 auto;
+}
+
+    .quote hr {
+        width: 30%;
+        color: black;
+        background-color: saddlebrown;
+        height: 1px;
+    }
+
+/* Weather Icons and Such --------------------------------------------------------*/
+
+.card {
+    border: 1px solid #DCDCDC;
+    background-color: #fff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.daily-info-card {
+    width: 260px;
+    text-align: center;
+}
+
+    .daily-info-card .weather {
+        background-color: #78c98d;
+        color: #fff;
+        font-size: 46px;
+        line-height: 124px;
+    }
+
+        .daily-info-card .weather i {
+            padding-left: 10px;
+        }
+
+    .daily-info-card .date {
+        color: #78c98d;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 50px;
+    }
+
