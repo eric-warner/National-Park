@@ -2,22 +2,37 @@
 @model List<Park>
 
 
+<div class="body-content">
+    <div class="text-center"><h2 class="green-text-header">List of National Parks</h2></div>
+    <br />
+    <br />
 
-<h2>List of National Parks</h2>
-@foreach (Park p in Model)
-{
-    <div class="row">
-        <div class="col-md-4">
-            <img src="~/Content/@(p.Code.ToLower() + ".jpg")" />
-        </div>
-        <div class="col-md-8">
-            .col-md-8
-            <div class="row">
-                <div class="col-md-6">.col-md-6</div>
-                <div class="col-md-6">.col-md-6</div>
+    @foreach (Park p in Model)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/Content/@(p.Code.ToLower() + ".jpg")" class="park-img" />
             </div>
-        </div>
+            <div class="col-md-6">
+                <h3>@p.Name</h3>
+                <p>@p.Description</p> 
+                <br />
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="btn-bg bg-2">
+                        <div class="btn btn-2">
+                            <a href="@Url.Action("Detail","Home", new { parkCode = p.Code }, null)">
+                                <button><H4>View More Details</H4></button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    </div>
-    <hr />
-}
+        </div>
+        <br />
+        <hr />
+        <br />
+    }
+</div>
