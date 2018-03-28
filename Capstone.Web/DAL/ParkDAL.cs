@@ -18,7 +18,7 @@ namespace Capstone.Web.DAL
         public IList<Park> GetAllParks()
         {
             List<Park> parks = new List<Park>();
-            string SQL_GetAllParks = @"SELECT parkCode, parkName, parkDescription FROM park ORDER BY parkName";
+            string SQL_GetAllParks = @"SELECT * FROM park ORDER BY parkName";
 
             using(SqlConnection conn = new SqlConnection(_connectionString))
             {
@@ -88,7 +88,6 @@ namespace Capstone.Web.DAL
             {
                 Code = Convert.ToString(reader["parkCode"]),
                 Name = Convert.ToString(reader["parkName"]),
-                Description = Convert.ToString(reader["parkDescription"]),
                 State = Convert.ToString(reader["state"]),
                 Acreage = Convert.ToInt32(reader["acreage"]),
                 ElevationInFeet = Convert.ToInt32(reader["elevationInFeet"]),
@@ -98,6 +97,7 @@ namespace Capstone.Web.DAL
                 AnnualVisitorCount = Convert.ToInt32(reader["annualVisitorCount"]),
                 InspirationalQuote = Convert.ToString(reader["inspirationalQuote"]),
                 InspirationalQuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]),
+                Description = Convert.ToString(reader["parkDescription"]),
                 EntryFee = Convert.ToInt32(reader["entryFee"]),
                 NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"])
             };

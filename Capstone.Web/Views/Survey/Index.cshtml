@@ -1,0 +1,17 @@
+﻿@using Capstone.Web.Models
+@model List<Park>
+<h2>Survey</h2>
+<form class="form-horizontal" action="/" method="post">
+    <div class="form-group">
+        <lable>Favorite National Park</lable>
+        <div>
+            <select>
+                @foreach(Park p in Model)
+                {
+                    <option value="@p.Code">@p.Name</option>
+                }
+            </select>
+        </div>
+    </div>
+</form>
+

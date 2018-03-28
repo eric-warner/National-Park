@@ -140,6 +140,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="DAL\Interfaces\IParkDAL.cs" />
     <Compile Include="DAL\ParkDAL.cs" />
     <Compile Include="Global.asax.cs">
@@ -161,6 +162,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Detail.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
