@@ -208,7 +208,7 @@ textarea {
 }
 
 .daily-info-card {
-    width: 260px;
+    width: 100%;
     text-align: center;
 }
 
@@ -240,4 +240,13 @@ textarea {
     .daily-info-card:nth-child(2n+1) {
 
     }
+
+.text-gray {
+    color: gray !important;
+    font-weight: bold;
+    font-size: 1vw;
+    line-height: 20px;
+    padding: 0 5px 20px;
+    height: 50px;
+}
 

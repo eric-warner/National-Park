@@ -6,7 +6,7 @@
     <br />
     <br />
     <div class="row">
-        <div class="col-lg-6 detail-col">
+        <div class="col-md-6 detail-col">
             <img src="~/Content/@(Model.Park.Code.ToLower() + ".jpg")" />
             <h4>@Model.Park.State</h4>
             <br />
@@ -14,9 +14,9 @@
             <br />
             <h4>Founded in @Model.Park.YearFounded</h4>
         </div>
-        <div class="col-lg-5">
+        <div class="col-md-5">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="bs-callout bs-callout-success">
                         <h4>Park Acreage</h4>
                         @Model.Park.Acreage Acres
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="bs-callout bs-callout-success">
                         <h4>Park Elevation</h4>
                         @Model.Park.ElevationInFeet Feet
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="bs-callout bs-callout-success">
                         <h4>Miles of Trail</h4>
                         @Model.Park.MilesOfTrail Miles
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="bs-callout bs-callout-success">
                         <h4>Number of Campsites</h4>
                         @Model.Park.NumberOfCampsites Campsites
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="bs-callout bs-callout-success">
                         <h4>Park Climate</h4>
                         @Model.Park.Climate
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="bs-callout bs-callout-success">
                         <h4>Number of Annual Visitors</h4>
                         @Model.Park.AnnualVisitorCount Visitors
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <div class="bs-callout bs-callout-success">
                         <h4>Number of Animal Species</h4>
                         @Model.Park.NumberOfAnimalSpecies Species
@@ -74,7 +74,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-md-12">
             <div class="jumbotron">
                 <div class="quote">
                     <div class="text-center">
@@ -90,56 +90,61 @@
     <div class="row">
         @foreach (var weather in Model.Weather)
     {
-        <div class="col-lg-4">
+        <div class="col-md-4">
             <div class="card daily-info-card">
                 <div class="weather">
-                    @if(weather.Forecast == "rain")
-                    {
-                        <i class="wi wi-day-rain"></i>
-                    }
-                     @if(weather.Forecast == "partly cloudy")
-                    {
-                        <i class="wi wi-day-cloudy"></i>
-                    }
-                     @if(weather.Forecast == "cloudy")
-                    {
-                        <i class="wi wi-cloudy"></i>
-                    }
-                     @if(weather.Forecast == "thunderstorms")
-                    {
-                        <i class="wi wi-day-thunderstorm"></i>
-                    }
-                     @if(weather.Forecast == "sunny")
-                    {
-                        <i class="wi wi-day-sunny"></i>
-                    }
-                     @if(weather.Forecast == "snow")
-                    {
-                        <i class="wi wi-day-snow"></i>
-                    }
+                    @if (weather.Forecast == "rain")
+        {
+            <i class="wi wi-day-rain"></i>
+}
+                    @if (weather.Forecast == "partly cloudy")
+        {
+            <i class="wi wi-day-cloudy"></i>
+}
+                    @if (weather.Forecast == "cloudy")
+        {
+            <i class="wi wi-cloudy"></i>
+}
+                    @if (weather.Forecast == "thunderstorms")
+        {
+            <i class="wi wi-day-thunderstorm"></i>
+}
+                    @if (weather.Forecast == "sunny")
+        {
+            <i class="wi wi-day-sunny"></i>
+}
+                    @if (weather.Forecast == "snow")
+        {
+            <i class="wi wi-day-snow"></i>
+}
                     <h3>H: <b>@weather.High°</b>   L: <b>@weather.Low°</b></h3>
                 </div>
 
                 @if (weather.ForecastDay == 1)
-            {
-                <div class="date">Monday</div>
-        }
+    {
+            <div class="date">Monday</div>
+            <div class="text-gray">@weather.Advisory</div>
+}
                 @if (weather.ForecastDay == 2)
-            {
-                <div class="date">Tuesday</div>
-        }
+    {
+            <div class="date">Tuesday</div>
+            <div class="text-gray">@weather.Advisory</div>
+}
                 @if (weather.ForecastDay == 3)
-            {
-                <div class="date">Wednesday</div>
-        }
+    {
+            <div class="date">Wednesday</div>
+            <div class="text-gray">@weather.Advisory</div>
+}
                 @if (weather.ForecastDay == 4)
-            {
-                <div class="date">Thursday</div>
-        }
+    {
+            <div class="date">Thursday</div>
+            <div class="text-gray">@weather.Advisory</div>
+}
                 @if (weather.ForecastDay == 5)
-            {
-                <div class="date">Friday</div>
-        }
+    {
+            <div class="date">Friday</div>
+            <div class="text-gray">@weather.Advisory</div>
+}
             </div>
         </div>
 
