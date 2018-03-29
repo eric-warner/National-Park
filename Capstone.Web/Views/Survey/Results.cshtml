@@ -1,16 +1,36 @@
 ﻿@using Capstone.Web.Models
 @model List<SurveyResult>
+<div class="body-content">
+    <div class="center">
+        <div class="container">
+            <h2 class="green-text-header">Survey Results</h2>
 
-<div class="container">
-    <h2>Survey Results</h2>
-
-    @foreach (SurveyResult result in Model)
-    {
-        <div class="surveyResult">
-            <img src="~/Content/parks/@(result.Park.Code.ToLower() + ".jpg")" alt="@result.Park.Name" />
-            <div><a href="/Home/Detail/@result.Park.Code">@result.Park.Name</a></div>
-            <div>@result.Count</div>
-        </div>
+            @foreach (SurveyResult result in Model)
+        {
+            <div class="surveyResult">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="~/Content/parks/@(result.Park.Code.ToLower() + ".jpg")" alt="@result.Park.Name" />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="align-middle">
+                            <div class="text-left">
+                                <h2><a href="/Home/Detail/@result.Park.Code">@result.Park.Name</a></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="align-middle">
+                            <div class="vote-circle">
+                                @result.Count
+                            </div>
+                            <div class="vote-text"><div class="text-center">Votes</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
     }
 
+        </div>
+    </div>
 </div>
