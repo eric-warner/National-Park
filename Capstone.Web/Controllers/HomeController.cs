@@ -19,6 +19,11 @@ namespace Capstone.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            if(Session["tempType"] == null)
+            {
+                Session["tempType"] = "F";
+            }
+            
             IList<Park> parks = _dal.GetAllParks();
             return View("Index", parks);
         }
@@ -40,6 +45,21 @@ namespace Capstone.Web.Controllers
             };
 
             return View("Detail", parkAndWeather);
+        }
+
+        [HttpPost]
+        public ActionResult ChangeTemp(bool temp)
+        {
+            if(!temp)
+            {
+                Session["tempType"] = "F";
+            }
+            else if (temp)
+            {
+                Session["tempType"] = "C";
+            }
+
+            return Redirect(Request.UrlReferrer.ToString()); ;
         }
     }
 }

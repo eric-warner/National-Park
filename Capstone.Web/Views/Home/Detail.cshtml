@@ -1,6 +1,10 @@
 ﻿@using Capstone.Web.Models
 @model ParkAndWeather
 
+@{ 
+    bool isFahrenheit = Session["tempType"].Equals("F");
+}
+
 <div class="body-content">
     <div class="text-center"><h2 class="green-text-header">@Model.Park.Name</h2></div>
     <br />
@@ -89,65 +93,40 @@
     </div>
     <div class="row">
         @foreach (var weather in Model.Weather)
-    {
-        <div class="col-md-4">
-            <div class="card daily-info-card">
-                <div class="weather">
-                    @if (weather.Forecast == "rain")
         {
-            <i class="wi wi-day-rain"></i>
-}
-                    @if (weather.Forecast == "partly cloudy")
-        {
-            <i class="wi wi-day-cloudy"></i>
-}
-                    @if (weather.Forecast == "cloudy")
-        {
-            <i class="wi wi-cloudy"></i>
-}
-                    @if (weather.Forecast == "thunderstorms")
-        {
-            <i class="wi wi-day-thunderstorm"></i>
-}
-                    @if (weather.Forecast == "sunny")
-        {
-            <i class="wi wi-day-sunny"></i>
-}
-                    @if (weather.Forecast == "snow")
-        {
-            <i class="wi wi-day-snow"></i>
-}
-                    <h3>H: <b>@weather.High°</b>   L: <b>@weather.Low°</b></h3>
+            <div class="col-md-4">
+                <div class="card daily-info-card">
+                    <div class="weather">
+                        @if (weather.Forecast == "rain")
+                        {
+                            <i class="wi wi-day-rain"></i>
+                        }
+                        @if (weather.Forecast == "partly cloudy")
+                        {
+                            <i class="wi wi-day-cloudy"></i>
+                        }
+                        @if (weather.Forecast == "cloudy")
+                        {
+                            <i class="wi wi-cloudy"></i>
+                        }
+                        @if (weather.Forecast == "thunderstorms")
+                        {
+                            <i class="wi wi-day-thunderstorm"></i>
+                        }
+                        @if (weather.Forecast == "sunny")
+                        {
+                            <i class="wi wi-day-sunny"></i>
+                        }
+                        @if (weather.Forecast == "snow")
+                        {
+                            <i class="wi wi-day-snow"></i>
+                        }
+                        <h3>H: <b>@(isFahrenheit ? weather.High : weather.HighCelcius)°</b>   L: <b>@(isFahrenheit ? weather.Low : weather.LowCelcius)°</b></h3>
+                    </div>
+                    <div class="date">@DateTime.Now.AddDays(weather.ForecastDay - 1).DayOfWeek</div>
+                    <div class="text-gray">@weather.Advisory</div>
                 </div>
-
-                @if (weather.ForecastDay == 1)
-    {
-            <div class="date">Monday</div>
-            <div class="text-gray">@weather.Advisory</div>
-}
-                @if (weather.ForecastDay == 2)
-    {
-            <div class="date">Tuesday</div>
-            <div class="text-gray">@weather.Advisory</div>
-}
-                @if (weather.ForecastDay == 3)
-    {
-            <div class="date">Wednesday</div>
-            <div class="text-gray">@weather.Advisory</div>
-}
-                @if (weather.ForecastDay == 4)
-    {
-            <div class="date">Thursday</div>
-            <div class="text-gray">@weather.Advisory</div>
-}
-                @if (weather.ForecastDay == 5)
-    {
-            <div class="date">Friday</div>
-            <div class="text-gray">@weather.Advisory</div>
-}
             </div>
-        </div>
-
-}
+        }
     </div>
-    </div>
+</div>

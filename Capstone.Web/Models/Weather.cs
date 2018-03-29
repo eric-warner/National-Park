@@ -13,6 +13,24 @@ namespace Capstone.Web.Models
         public int High { get; set; }
         public string Forecast { get; set; }
 
+        public int LowCelcius
+        {
+            get
+            {
+                double converstion = (Low - 32.0) * (5 / 9.0);
+                return (int)Math.Round(converstion);
+            }
+        }
+
+        public int HighCelcius
+        {
+            get
+            {
+                double converstion = (High - 32.0) * (5 / 9.0);
+                return (int)Math.Round(converstion);
+            }
+        }
+
         public string Advisory
         {
             get
@@ -57,17 +75,17 @@ namespace Capstone.Web.Models
 
                 if (isHot)
                 {
-                    advisory += "\r\nBring extra water.";
+                    advisory += "Bring extra water.";
                 }
 
                 if (isHotAndCold)
                 {
-                    advisory += "\r\nWear breathable layers."; 
+                    advisory += "Wear breathable layers."; 
                 }
 
                 if (isCold)
                 {
-                    advisory += "\r\nDress warmly.";
+                    advisory += "Dress warmly.";
                 }
 
                 return advisory;
