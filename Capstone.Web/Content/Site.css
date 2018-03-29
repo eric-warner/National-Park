@@ -250,3 +250,128 @@ textarea {
     height: 50px;
 }
 
+/*Form Styles ==========================================================*/
+.survey-form {
+    background-color: #78c98d;
+    color: white;
+    border-color: #7B7B7B;
+    border-radius: 3px;
+    border: none;
+}
+.primary-title {
+    font-size: 24px;
+    width: 80%;
+}
+
+.divide-short-green {
+    background-color: darkslategray;
+    display: block;
+    margin: 0;
+    width: 3.5%;
+    height: 1.6px;
+    height: 0.1rem;
+}
+
+.survey-form input {
+    
+}
+
+.survey-form .input-clean {
+    font-size: 16px;
+    border-color: #7B7B7B;
+    border-radius: 3px;
+    border: none;
+    height: 56px;
+    padding: 30px 20px;
+    padding: 2rem 2rem;
+    width: 100%;
+    margin: 3.2px 8px 0px 0px;
+    margin: 0.2rem 0.5rem 0rem 0rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 50%;
+    flex: 1 0 50%;
+    max-width: 100%;
+}
+
+
+
+.survey-form .input-clean::-webkit-input-placeholder {
+    font-size: 16px;
+    color: #7B7B7B;
+    text-overflow: ellipsis;
+}
+
+.survey-form .input-clean:-ms-input-placeholder {
+    font-size: 16px;
+    color: #7B7B7B;
+    text-overflow: ellipsis;
+}
+
+.survey-form .input-clean:-ms-input-placeholder {
+    font-size: 16px;
+    color: #7B7B7B;
+    text-overflow: ellipsis;
+}
+
+.survey-form .input-clean:placeholder {
+    font-size: 16px;
+    color: #7B7B7B;
+    text-overflow: ellipsis;
+}
+
+    .survey-form .input-clean:focus {
+        outline-color: #5c6ac4;
+        outline: none;
+        -webkit-box-shadow: 0 0 0 0.2rem #5c6ac4;
+        box-shadow: 0 0 0 0.2rem #5c6ac4;
+    }
+
+
+
+/*Radio box*/
+
+.survey-form input[type="radio"] + .survey-form .label-text:before {
+    content: "\f10c";
+    font-family: "FontAwesome";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    width: 1em;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.survey-form input[type="radio"]:checked + .survey-form .label-text:before {
+    content: "\f192";
+    color: #8e44ad;
+    animation: effect 250ms ease-in;
+}
+
+.survey-form input[type="radio"]:disabled + .survey-form .label-text {
+    color: #aaa;
+}
+
+    .survey-form input[type="radio"]:disabled + .survey-form .label-text:before {
+        content: "\f111";
+        color: #ccc;
+    }
+
+/* Form Button -------------------------------------*/
+
+.btn-form {
+    width: 100%;
+    background-color: darkslategrey !important;
+    border-color: darkgreen !important;
+}
+
+
+
+    .btn-form:hover {
+        color: #ffffff;
+        background-color: darkgreen !important;
+        border-color: darkslategrey !important;
+    }

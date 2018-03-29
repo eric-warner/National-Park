@@ -1,103 +1,123 @@
 ﻿@using Capstone.Web.Models
 @model List<Park>
-<h2>Survey</h2>
-<div class="container">
-    <form action="/Survey/Submit" method="post">
-        <div class="form-group">
-            <label>Favorite National Park</label>
-            <div>
-                <select class="form-control" name="ParkCode">
-                    @foreach (Park p in Model)
-                    {
-                        <option value="@p.Code">@p.Name</option>
-                    }
-                </select>
+<div class="text-center"><h2 class="green-text-header">Survey</h2></div>
+<br />
+<div class="survey-form">
+    <div class="container">
+        <h1 class="primary-title">Which National Park is your favorite?</h1>
+        <div class="divide-short-green"></div>
+
+        <form action="/Survey/Submit" method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label></label>
+                        <div>
+                            <select class="form-control input-clean" name="ParkCode" required>
+                                <option value="" disabled selected>Favorite Park</option>
+                                @foreach (Park p in Model)
+    {
+                            <option value="@p.Code">@p.Name</option>
+}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label></label>
+                        <div>
+                            <input class="form-control input-clean" type="email" name="email" placeholder="Email Address" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label></label>
+                        <select class="form-control input-clean" name="State" required>
+                            <option value="" selected="selected">Select a State</option>
+                            <option>Alabama</option>
+                            <option>Alaska</option>
+                            <option>Arizona</option>
+                            <option>Arkansas</option>
+                            <option>California</option>
+                            <option>Colorado</option>
+                            <option>Connecticut</option>
+                            <option>Delaware</option>
+                            <option>District Of Columbia</option>
+                            <option>Florida</option>
+                            <option>Georgia</option>
+                            <option>Hawaii</option>
+                            <option>Idaho</option>
+                            <option>Illinois</option>
+                            <option>Indiana</option>
+                            <option>Iowa</option>
+                            <option>Kansas</option>
+                            <option>Kentucky</option>
+                            <option>Louisiana</option>
+                            <option>Maine</option>
+                            <option>Maryland</option>
+                            <option>Massachusetts</option>
+                            <option>Michigan</option>
+                            <option>Minnesota</option>
+                            <option>Mississippi</option>
+                            <option>Missouri</option>
+                            <option>Montana</option>
+                            <option>Nebraska</option>
+                            <option>Nevada</option>
+                            <option>New Hampshire</option>
+                            <option>New Jersey</option>
+                            <option>New Mexico</option>
+                            <option>New York</option>
+                            <option>North Carolina</option>
+                            <option>North Dakota</option>
+                            <option>Ohio</option>
+                            <option>Oklahoma</option>
+                            <option>Oregon</option>
+                            <option>Pennsylvania</option>
+                            <option>Rhode Island</option>
+                            <option>South Carolina</option>
+                            <option>South Dakota</option>
+                            <option>Tennessee</option>
+                            <option>Texas</option>
+                            <option>Utah</option>
+                            <option>Vermont</option>
+                            <option>Virginia</option>
+                            <option>Washington</option>
+                            <option>West Virginia</option>
+                            <option>Wisconsin</option>
+                            <option>Wyoming</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label>Your email</label>
-            <div>
-                <input class="form-control" type="email" name="email" />
+            <div class="form-group">
+                <label>Activity Level</label>
+                <div>
+                    <label class="radio-inline">
+                        <input type="radio" name="ActivityLevel" value="Inactive" checked required>Inactive
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="ActivityLevel" value="Sedentary" required>Sedentary
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="ActivityLevel" value="Active" required>Active
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="ActivityLevel" value="Extremely Active" required>Extremely Active
+                    </label>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label>State of residence</label>
-            <select class="form-control" name="State">
-                <option value="" selected="selected">Select a State</option>
-                <option>Alabama</option>
-                <option>Alaska</option>
-                <option>Arizona</option>
-                <option>Arkansas</option>
-                <option>California</option>
-                <option>Colorado</option>
-                <option>Connecticut</option>
-                <option>Delaware</option>
-                <option>District Of Columbia</option>
-                <option>Florida</option>
-                <option>Georgia</option>
-                <option>Hawaii</option>
-                <option>Idaho</option>
-                <option>Illinois</option>
-                <option>Indiana</option>
-                <option>Iowa</option>
-                <option>Kansas</option>
-                <option>Kentucky</option>
-                <option>Louisiana</option>
-                <option>Maine</option>
-                <option>Maryland</option>
-                <option>Massachusetts</option>
-                <option>Michigan</option>
-                <option>Minnesota</option>
-                <option>Mississippi</option>
-                <option>Missouri</option>
-                <option>Montana</option>
-                <option>Nebraska</option>
-                <option>Nevada</option>
-                <option>New Hampshire</option>
-                <option>New Jersey</option>
-                <option>New Mexico</option>
-                <option>New York</option>
-                <option>North Carolina</option>
-                <option>North Dakota</option>
-                <option>Ohio</option>
-                <option>Oklahoma</option>
-                <option>Oregon</option>
-                <option>Pennsylvania</option>
-                <option>Rhode Island</option>
-                <option>South Carolina</option>
-                <option>South Dakota</option>
-                <option>Tennessee</option>
-                <option>Texas</option>
-                <option>Utah</option>
-                <option>Vermont</option>
-                <option>Virginia</option>
-                <option>Washington</option>
-                <option>West Virginia</option>
-                <option>Wisconsin</option>
-                <option>Wyoming</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Activity Level</label>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" name="ActivityLevel" value="Inactive">Inactive
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="ActivityLevel" value="Sedentary">Sedentary
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="ActivityLevel" value="Active">Active
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="ActivityLevel" value="Extremely Active">Extremely Active
-                </label>
+            <div class="form-group">
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-form">Submit</button>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+        </form>
+
+    </div>
 </div>
+
+
 
 
