@@ -10,69 +10,61 @@
     <br />
     <br />
     <div class="row">
-        <div class="col-md-6 detail-col">
-            <img src="~/Content/@(Model.Park.Code.ToLower() + ".jpg")" />
+        <div class="col-md-6">
+            <img class="img-responsive" src="~/Content/@(Model.Park.Code.ToLower() + ".jpg")" />
             <h4>@Model.Park.State</h4>
             <br />
             <p>@Model.Park.Description</p>
             <br />
             <h4>Founded in @Model.Park.YearFounded</h4>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Park Acreage</h4>
-                        @Model.Park.Acreage Acres
-                    </div>
+                <div class="bs-callout bs-callout-success">
+                    <h4>Park Acreage</h4>
+                    @Model.Park.Acreage.ToString("N0") Acres
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Park Elevation</h4>
-                        @Model.Park.ElevationInFeet Feet
-                    </div>
+                <div class="bs-callout bs-callout-success">
+                    <h4>Park Elevation</h4>
+                    @Model.Park.ElevationInFeet.ToString("N0") Feet
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Miles of Trail</h4>
-                        @Model.Park.MilesOfTrail Miles
-                    </div>
+                <div class="bs-callout bs-callout-success">
+                    <h4>Miles of Trail</h4>
+                    @Model.Park.MilesOfTrail.ToString("N0") Miles
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Number of Campsites</h4>
-                        @Model.Park.NumberOfCampsites Campsites
-                    </div>
+                <div class="bs-callout bs-callout-success">
+                    <h4>Number of Campsites</h4>
+                    @Model.Park.NumberOfCampsites.ToString("N0") Campsites
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Park Climate</h4>
-                        @Model.Park.Climate
-                    </div>
+                <div class="bs-callout bs-callout-success">
+                    <h4>Park Climate</h4>
+                    @Model.Park.Climate
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Number of Annual Visitors</h4>
-                        @Model.Park.AnnualVisitorCount Visitors
-                    </div>
+                <div class="bs-callout bs-callout-success">
+                    <h4>Number of Annual Visitors</h4>
+                    @Model.Park.AnnualVisitorCount.ToString("N0") Visitors
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div class="bs-callout bs-callout-success">
-                        <h4>Number of Animal Species</h4>
-                        @Model.Park.NumberOfAnimalSpecies Species
-                    </div>
+                <div class="bs-callout bs-callout-success">
+                    <h4>Number of Animal Species</h4>
+                    @Model.Park.NumberOfAnimalSpecies.ToString("N0") Species
+                </div>
+            </div>
+            <div class="row">
+                <div class="bs-callout bs-callout-success">
+                    <h4>Entry Fee</h4>
+                    @Model.Park.EntryFee.ToString("C")
                 </div>
             </div>
         </div>

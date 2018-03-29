@@ -59,7 +59,7 @@ namespace Capstone.Web.Controllers
                 Session["tempType"] = "C";
             }
 
-            return Redirect(Request.UrlReferrer.ToString()); ;
+            return Redirect(Request.UrlReferrer.ToString());
         }
     }
 }

@@ -26,34 +26,34 @@
                         <img src="~/Content/logo.png" alt="National Park Geek">
                     </a>
                 </div>
-                <div id="navbar3" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
                     </ul>
+                    <form action="/Home/ChangeTemp" method="post" class="navbar-right">
+                        @Html.CheckBox(
+                           "temp",
+                           (tempType.Equals("C") ? true : false),
+                           new
+                           {
+                               data_toggle = "toggle",
+                               data_on = "&deg;C",
+                               data_off = "&deg;F",
+                               data_size = "mini",
+                               data_onstyle = "primary",
+                               data_offstyle = "success",
+                               onchange = "this.form.submit()"
+                           }
+                       )
+                    </form>
                 </div>
                 <!--/.nav-collapse -->
             </div>
             <!--/.container-fluid -->
         </nav>
     </div>
-    <form action="/Home/ChangeTemp" method="post">
-        @Html.CheckBox(
-            "temp",
-            (tempType.Equals("C") ? true : false),
-            new
-            {
-                data_toggle = "toggle",
-                data_on = "&deg;C",
-                data_off = "&deg;F",
-                data_size = "mini",
-                data_onstyle = "primary",
-                data_offstyle = "success",
-                onchange = "this.form.submit()"
-            }
-        )
-        @*<input name="temp" type="checkbox" @(tempType.Equals("C") ? "checked" : "") data-toggle="toggle" data-on="&deg;C" data-off="&deg;F" data-size="mini" data-onstyle="primary" data-offstyle="success" onchange="this.form.submit()">*@
-    </form>
+    
     
 
     <div class="container body-content">
