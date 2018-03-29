@@ -18,6 +18,11 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Index()
         {
+            if (Session["tempType"] == null)
+            {
+                Session["tempType"] = "F";
+            }
+
             IList<Park> parks = _dal.GetAllParks();
             return View("Index", parks);
         }
@@ -25,6 +30,11 @@ namespace Capstone.Web.Controllers
         [HttpPost]
         public ActionResult Submit(Survey survey)
         {
+            if (Session["tempType"] == null)
+            {
+                Session["tempType"] = "F";
+            }
+
             bool isSubmitted = _dal.AddSurvey(survey);
 
             if (isSubmitted)
@@ -38,6 +48,11 @@ namespace Capstone.Web.Controllers
 
         public ActionResult Results()
         {
+            if (Session["tempType"] == null)
+            {
+                Session["tempType"] = "F";
+            }
+
             IList<SurveyResult> results = _dal.GetSurveyResults();
             return View("Results", results);
         }
