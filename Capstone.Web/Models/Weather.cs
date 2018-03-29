@@ -32,11 +32,11 @@ namespace Capstone.Web.Models
 
                 if (isRainy)
                 {
-                    advisory = "Pack rain gear and wear waterproof shoes.";
+                    advisory = "Pack rain gear and wear waterproof shoes. ";
                 }
                 else if (isPartlyCloudy)
                 {
-                    advisory = "Enjoy the weather.";
+                    advisory = "Enjoy the weather. ";
                 }
                 else if (isThunderstorm)
                 {
@@ -44,30 +44,30 @@ namespace Capstone.Web.Models
                 }
                 else if (isSunny)
                 {
-                    advisory = "Pack sunblock";
+                    advisory = "Pack sunblock. ";
                 }
                 else if (isSnowy)
                 {
-                    advisory = "Pack snowshoes.";
+                    advisory = "Pack snowshoes. ";
                 }
                 else if (isCloudy)
                 {
-                    advisory = "Wear a sweater.";
+                    advisory = "Wear a sweater. ";
                 }
 
                 if (isHot)
                 {
-                    advisory += "\nBring extra water.";
+                    advisory += "\r\nBring extra water.";
                 }
 
                 if (isHotAndCold)
                 {
-                    advisory += "\nWear breathable layers."; 
+                    advisory += "\r\nWear breathable layers."; 
                 }
 
                 if (isCold)
                 {
-                    advisory += "\nDress warmly.";
+                    advisory += "\r\nDress warmly.";
                 }
 
                 return advisory;
