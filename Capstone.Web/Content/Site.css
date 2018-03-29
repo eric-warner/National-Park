@@ -204,6 +204,7 @@ textarea {
     background-color: #fff;
     border-radius: 5px;
     margin-bottom: 10px;
+    float: left;
 }
 
 .daily-info-card {
@@ -214,8 +215,9 @@ textarea {
     .daily-info-card .weather {
         background-color: #78c98d;
         color: #fff;
-        font-size: 46px;
-        line-height: 124px;
+        font-size: 57px;
+        line-height: 100px;
+        padding-top: 5%;
     }
 
         .daily-info-card .weather i {
@@ -227,5 +229,15 @@ textarea {
         font-weight: bold;
         font-size: 16px;
         line-height: 50px;
+    }
+
+    .daily-info-card h3 {
+        padding-top: 0;
+        padding-bottom: 5%;
+        margin-top: 0;
+    }
+
+    .daily-info-card:nth-child(2n+1) {
+
     }
 

@@ -83,18 +83,66 @@
                         <h4>@Model.Park.InspirationalQuoteSource</h4>
                         <hr />
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6">
+        @foreach (var weather in Model.Weather)
+    {
+        <div class="col-lg-4">
             <div class="card daily-info-card">
-            <div class="weather">
-                <!-- react-text: 86 -->12°<!-- /react-text --><i class="wi wi-day-cloudy"></i>
+                <div class="weather">
+                    @if(weather.Forecast == "rain")
+                    {
+                        <i class="wi wi-day-rain"></i>
+                    }
+                     @if(weather.Forecast == "partly cloudy")
+                    {
+                        <i class="wi wi-day-cloudy"></i>
+                    }
+                     @if(weather.Forecast == "cloudy")
+                    {
+                        <i class="wi wi-cloudy"></i>
+                    }
+                     @if(weather.Forecast == "thunderstorms")
+                    {
+                        <i class="wi wi-day-thunderstorm"></i>
+                    }
+                     @if(weather.Forecast == "sunny")
+                    {
+                        <i class="wi wi-day-sunny"></i>
+                    }
+                     @if(weather.Forecast == "snow")
+                    {
+                        <i class="wi wi-day-snow"></i>
+                    }
+                    <h3>H: <b>@weather.High°</b>   L: <b>@weather.Low°</b></h3>
                 </div>
-            <div class="date">Saturday 16 january</div>
+
+                @if (weather.ForecastDay == 1)
+            {
+                <div class="date">Monday</div>
+        }
+                @if (weather.ForecastDay == 2)
+            {
+                <div class="date">Tuesday</div>
+        }
+                @if (weather.ForecastDay == 3)
+            {
+                <div class="date">Wednesday</div>
+        }
+                @if (weather.ForecastDay == 4)
+            {
+                <div class="date">Thursday</div>
+        }
+                @if (weather.ForecastDay == 5)
+            {
+                <div class="date">Friday</div>
+        }
             </div>
         </div>
+
+}
     </div>
-</div>
+    </div>
