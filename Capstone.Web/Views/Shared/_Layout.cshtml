@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    string tempType = Session["tempType"] as string;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -25,8 +28,8 @@
                 </div>
                 <div id="navbar3" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active">@Html.ActionLink("Home", "Index", "Home", new { area = "" })</li>
-                        <li>@Html.ActionLink("Survey", "Index", "Home", new { area = "" })</li>
+                        <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -34,8 +37,24 @@
             <!--/.container-fluid -->
         </nav>
     </div>
-
-
+    <form action="/Home/ChangeTemp" method="post">
+        @Html.CheckBox(
+            "temp",
+            (tempType.Equals("C") ? true : false),
+            new
+            {
+                data_toggle = "toggle",
+                data_on = "&deg;C",
+                data_off = "&deg;F",
+                data_size = "mini",
+                data_onstyle = "primary",
+                data_offstyle = "success",
+                onchange = "this.form.submit()"
+            }
+        )
+        @*<input name="temp" type="checkbox" @(tempType.Equals("C") ? "checked" : "") data-toggle="toggle" data-on="&deg;C" data-off="&deg;F" data-size="mini" data-onstyle="primary" data-offstyle="success" onchange="this.form.submit()">*@
+    </form>
+    
 
     <div class="container body-content">
         @RenderBody()
@@ -47,5 +66,7 @@
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </body>
 </html>

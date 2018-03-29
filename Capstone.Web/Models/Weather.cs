@@ -13,6 +13,24 @@ namespace Capstone.Web.Models
         public int High { get; set; }
         public string Forecast { get; set; }
 
+        public int LowCelcius
+        {
+            get
+            {
+                double converstion = (Low - 32.0) * (5 / 9.0);
+                return (int)Math.Round(converstion);
+            }
+        }
+
+        public int HighCelcius
+        {
+            get
+            {
+                double converstion = (High - 32.0) * (5 / 9.0);
+                return (int)Math.Round(converstion);
+            }
+        }
+
         public string Advisory
         {
             get
@@ -32,11 +50,11 @@ namespace Capstone.Web.Models
 
                 if (isRainy)
                 {
-                    advisory = "Pack rain gear and wear waterproof shoes.";
+                    advisory = "Pack rain gear and wear waterproof shoes. ";
                 }
                 else if (isPartlyCloudy)
                 {
-                    advisory = "Enjoy the weather.";
+                    advisory = "Enjoy the weather. ";
                 }
                 else if (isThunderstorm)
                 {
@@ -44,30 +62,30 @@ namespace Capstone.Web.Models
                 }
                 else if (isSunny)
                 {
-                    advisory = "Pack sunblock";
+                    advisory = "Pack sunblock. ";
                 }
                 else if (isSnowy)
                 {
-                    advisory = "Pack snowshoes.";
+                    advisory = "Pack snowshoes. ";
                 }
                 else if (isCloudy)
                 {
-                    advisory = "Wear a sweater.";
+                    advisory = "Wear a sweater. ";
                 }
 
                 if (isHot)
                 {
-                    advisory += "\nBring extra water.";
+                    advisory += "Bring extra water.";
                 }
 
                 if (isHotAndCold)
                 {
-                    advisory += "\nWear breathable layers."; 
+                    advisory += "Wear breathable layers."; 
                 }
 
                 if (isCold)
                 {
-                    advisory += "\nDress warmly.";
+                    advisory += "Dress warmly.";
                 }
 
                 return advisory;
