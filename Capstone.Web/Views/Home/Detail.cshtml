@@ -86,7 +86,9 @@
     <div class="row">
         @foreach (var weather in Model.Weather)
         {
-            <div class="col-md-4">
+            DateTime dt = DateTime.Now.AddDays(weather.ForecastDay - 1);
+
+            <div class="@(dt == DateTime.Now ? "col-md-4" : "col-md-2")">
                 <div class="card daily-info-card">
                     <div class="weather">
                         @if (weather.Forecast == "rain")
