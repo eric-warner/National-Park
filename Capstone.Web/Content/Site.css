@@ -49,6 +49,10 @@ textarea {
     color: #78c98d;
 }
 
+.img-responsive {
+    border-radius: 3px;
+}
+
 /*Button Styles ==============================================*/
 
 .btn-bg {
@@ -198,6 +202,26 @@ textarea {
     }
 
 /* Weather Icons and Such --------------------------------------------------------*/
+.col-md-2 .daily-info-card .weather {
+    background-color: #78c98d;
+    color: #fff;
+    font-size: 45px;
+    line-height: 100px;
+    padding-top: 5%;
+}
+
+    .col-md-2 .daily-info-card .weather i {
+        padding-left: 10px;
+    } 
+
+.col-md-2 h3 {
+    font-size: 1vw;
+}
+
+.col-md-2 .text-gray {
+    font-size: 0.8vw;
+    line-height: 10px;
+}
 
 .card {
     border: 1px solid #DCDCDC;
