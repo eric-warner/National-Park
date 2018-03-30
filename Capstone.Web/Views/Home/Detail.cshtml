@@ -115,7 +115,7 @@
                         {
                             <i class="wi wi-day-snow"></i>
                         }
-                        <h3>H: <b>@(isFahrenheit ? weather.High : weather.HighCelcius)°</b>   L: <b>@(isFahrenheit ? weather.Low : weather.LowCelcius)°</b></h3>
+                        <h3>H: <b>@(isFahrenheit ? weather.High : weather.HighCelcius)°@(isFahrenheit ? "F" : "C")</b>   L: <b>@(isFahrenheit ? weather.Low : weather.LowCelcius)°@(isFahrenheit ? "F" : "C")</b></h3>
                     </div>
                     <div class="date">@DateTime.Now.AddDays(weather.ForecastDay - 1).DayOfWeek</div>
                     <div class="text-gray">@weather.Advisory</div>
