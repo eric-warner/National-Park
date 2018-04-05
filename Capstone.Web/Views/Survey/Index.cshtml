@@ -11,29 +11,22 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label></label>
-                        <div>
-                            <select class="form-control input-clean" name="ParkCode" required>
-                                <option value="" disabled selected>Favorite Park</option>
-                                @foreach (Park p in Model)
-    {
-                            <option value="@p.Code">@p.Name</option>
-}
-                            </select>
-                        </div>
+                        <select class="form-control input-clean" name="ParkCode" required>
+                            <option value="" disabled selected>Favorite Park</option>
+                            @foreach (Park p in Model)
+                            {
+                                <option value="@p.Code">@p.Name</option>
+                            }
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label></label>
-                        <div>
-                            <input class="form-control input-clean" type="email" name="email" placeholder="Email Address" />
-                        </div>
+                        <input class="form-control input-clean" type="email" name="email" placeholder="Email Address" />
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label></label>
                         <select class="form-control input-clean" name="State" required>
                             <option value="" selected="selected">Select a State</option>
                             <option>Alabama</option>

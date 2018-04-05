@@ -1,21 +1,18 @@
 ﻿@using Capstone.Web.Models
 @model ParkAndWeather
 
-@{ 
+@{
     bool isFahrenheit = Session["tempType"].Equals("F");
+    string tempType = Session["tempType"] as string;
 }
 
 <div class="body-content">
-    <div class="text-center"><h2 class="green-text-header">@Model.Park.Name</h2></div>
-    <br />
-    <br />
+    <div class="text-center"><h2 class="green-text-header detail-header">@Model.Park.Name</h2></div>
     <div class="row">
         <div class="col-md-6">
             <img class="img-responsive" src="~/Content/@(Model.Park.Code.ToLower() + ".jpg")" />
             <h4>@Model.Park.State</h4>
-            <br />
             <p>@Model.Park.Description</p>
-            <br />
             <h4>Founded in @Model.Park.YearFounded</h4>
         </div>
         <div class="col-md-6">
@@ -83,6 +80,25 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <form action="/Home/ChangeTemp" method="post" class="toggle-button">
+            @Html.CheckBox(
+                      "temp",
+                      (tempType.Equals("C") ? true : false),
+                      new
+                      {
+                          data_toggle = "toggle",
+                          data_on = "&deg;C",
+                          data_off = "&deg;F",
+                          data_size = "mini",
+                          data_onstyle = "primary",
+                          data_offstyle = "success",
+                          onchange = "this.form.submit()"
+                      }
+                  )
+        </form>
+    </div>
+    <a name="weather"></a>
     <div class="row">
         @foreach (var weather in Model.Weather)
         {

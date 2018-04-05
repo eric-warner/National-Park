@@ -1,7 +1,4 @@
-﻿@{ 
-    string tempType = Session["tempType"] as string;
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,30 +7,6 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
-
-    <style>
-        .nav-main .nav > li > a {
-            padding: 12px;
-        }
-
-        .nav-main .navbar-brand {
-            height: auto;
-        }
-        .navbar {
-            min-height: auto;
-        }
-        .toggle-button {
-            margin-top:11px;
-        }
-
-        .nav-main img {
-             padding: 0; 
-             float: none; 
-        }
-        .logo {
-            padding-top:10px;
-        }
-    </style>
 </head>
 <body>
     <div class="nav-main">
@@ -59,31 +32,12 @@
                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                         <li>@Html.ActionLink("Survey", "Index", "Survey")</li>
                     </ul>
-                    <form action="/Home/ChangeTemp" method="post" class="navbar-right toggle-button">
-                        @Html.CheckBox(
-                            "temp",
-                            (tempType.Equals("C") ? true : false),
-                            new
-                            {
-                                data_toggle = "toggle",
-                                data_on = "&deg;C",
-                                data_off = "&deg;F",
-                                data_size = "mini",
-                                data_onstyle = "primary",
-                                data_offstyle = "success",
-                                onchange = "this.form.submit()"
-                            }
-                        )
-                    </form>
                 </div>
                 <!--/.nav-collapse -->
             </div>
             <!--/.container-fluid -->
         </nav>
     </div>
-    
-    
-
     <div class="container body-content">
         @RenderBody()
         <hr />
